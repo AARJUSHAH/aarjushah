@@ -48,6 +48,3 @@
 ---
 
 ✨ *Soft aesthetics, strong logic, and code that tells a story.*
-
-#
-![](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical)
