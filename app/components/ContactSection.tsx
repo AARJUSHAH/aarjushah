@@ -19,7 +19,7 @@ export function ContactSection() {
   };
 
   return (
-    <section className="relative py-32 px-6 bg-secondary/30" id="contact">
+    <section className="relative py-32 px-6 bg-secondary/30 overflow-hidden" id="contact">
       <div className="container mx-auto max-w-7xl">
         {/* Section Header */}
         <motion.div
@@ -49,7 +49,7 @@ export function ContactSection() {
           <MetallicDivider variant="holographic" />
         </motion.div>
 
-        <div className="grid grid-cols-12 gap-12">
+        <div className="grid grid-cols-12 gap-y-12 md:gap-x-12">
           {/* Left - Contact Form */}
           <motion.div
             className="col-span-12 lg:col-span-7"

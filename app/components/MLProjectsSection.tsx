@@ -96,7 +96,7 @@ const projects = [
 
 export function MLProjectsSection() {
   return (
-    <section className="relative py-32 px-6 bg-secondary/30" id="projects">
+    <section className="relative py-32 px-6 bg-secondary/30 overflow-hidden" id="projects">
       <div className="container mx-auto max-w-7xl">
         {/* Section Header */}
         <motion.div

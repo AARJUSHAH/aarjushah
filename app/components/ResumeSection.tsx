@@ -39,7 +39,7 @@ const education = [
 
 export function ResumeSection() {
   return (
-    <section className="relative py-32 px-6" id="resume">
+    <section className="relative py-32 px-6 overflow-hidden" id="resume">
       <div className="container mx-auto max-w-7xl">
         {/* Section Header */}
         <motion.div
@@ -65,7 +65,7 @@ export function ResumeSection() {
           <MetallicDivider variant="holographic" />
         </motion.div>
 
-        <div className="grid grid-cols-12 gap-12">
+        <div className="grid grid-cols-12 gap-y-12 md:gap-x-12">
           {/* Left Column - Timeline */}
           <div className="col-span-12 lg:col-span-7 space-y-16">
             {/* Education */}
@@ -89,9 +89,9 @@ export function ResumeSection() {
                   >
                     <div className="flex items-start justify-between gap-4">
                       <div>
-                        <h4 className="text-lg font-semibold mb-1">{edu.degree}</h4>
-                        <p className="text-muted-foreground mb-2">{edu.school}</p>
-                        <p className="text-sm text-[#00ff88]">Focus: {edu.focus}</p>
+                        <h4 className="text-md md:text-lg font-semibold mb-1">{edu.degree}</h4>
+                        <p className="text-sm md:text-base text-muted-foreground mb-2">{edu.school}</p>
+                        <p className="text-sm md:text-base text-[#00ff88]">Focus: {edu.focus}</p>
                       </div>
                       <span className="text-sm text-muted-foreground font-mono whitespace-nowrap">
                         {edu.period}
@@ -101,7 +101,7 @@ export function ResumeSection() {
                 ))}
               </div>
             </div>
-            {/* extraci */}
+            {/* extracirriculars */}
             <div>
               <div className="flex items-center gap-3 mb-8">
                 <Briefcase className="text-[#b444ff]" size={24} />

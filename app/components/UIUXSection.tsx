@@ -42,7 +42,7 @@ const uiuxProjects = [
 
 export function UIUXSection() {
   return (
-    <section className="relative py-32 px-6" id="uiux">
+    <section className="relative py-32 px-6 overflow-hidden" id="uiux">
       <div className="container mx-auto max-w-7xl">
         {/* Section Header */}
         <motion.div

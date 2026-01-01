@@ -11,7 +11,7 @@ import { ContactSection } from './components/ContactSection';
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen">
+    <div className="relative min-h-screen overflow-x-hidden">
       {/* Background Effects */}
       <NeuralNetworkBg />
       <GrainOverlay opacity={0.04} />
