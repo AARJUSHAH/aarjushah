@@ -83,7 +83,7 @@ export function UIUXSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: index * 0.15 }}
             >
-              <div className="grid grid-cols-12 gap-8">
+              <div className="grid grid-cols-12 gap-y-8 md:gap-x-8">
                 {/* Large Image */}
                 <div
                   className={`col-span-12 ${index % 2 === 0 ? 'lg:col-span-7' : 'lg:col-span-6 lg:col-start-7'

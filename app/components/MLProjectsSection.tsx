@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion';
 import { Brain, ArrowUpRight } from 'lucide-react';
 import { MetallicDivider } from './MetallicDivider';
-import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, BarChart, Bar, XAxis, YAxis, LabelList, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import Image from 'next/image';
 
 const projects = [
@@ -131,7 +131,7 @@ export function MLProjectsSection() {
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              className={`grid grid-cols-12 gap-8 items-center ${index % 2 === 0 ? '' : 'lg:flex-row-reverse'
+              className={`grid grid-cols-12 gap-y-8 md:gap-x-8 items-center ${index % 2 === 0 ? '' : 'lg:flex-row-reverse'
                 }`}
               initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -231,34 +231,92 @@ export function MLProjectsSection() {
                     />
 
                     {/* Chart Overlay */}
-                    <div className="absolute inset-0 flex items-center justify-center p-8">
-                      <div className="w-full h-full bg-card/80 backdrop-blur-md border border-border p-6">
+                    <div className="absolute inset-0 flex items-center justify-center md:p-8">
+                      <div className="w-full h-full bg-card/80 backdrop-blur-md border border-border md:p-6">
                         <ResponsiveContainer width="100%" height="100%">
                           {index <= 1 ? (
+                            // <BarChart data={project.chartData}>
+                            //   <CartesianGrid strokeDasharray="3 3" stroke="#27273a" />
+                            //   <XAxis
+                            //     dataKey={index === 0 ? 'model' : 'category'}
+                            //     stroke="#a0a0b0"
+                            //     interval={0}
+                            //     tick={{ fontSize: 10 }}
+                            //     textAnchor="end"
+                            //   />
+                            //   <YAxis
+                            //     stroke="#a0a0b0"
+                            //     textAnchor="end"
+                            //     label={index === 0 ? {
+                            //       value: 'Accuracy',
+                            //       angle: -90,
+                            //       position: 'insideLeft',
+                            //       fontSize: 12,
+                            //       style: { fill: '#a0a0b0' }
+                            //     } : undefined}
+                            //   />
+                            //   <Tooltip
+                            //     contentStyle={{
+                            //       backgroundColor: '#13131a',
+                            //       border: '1px solid #27273a',
+                            //     }}
+                            //   />
+                            //   <Bar dataKey={index === 0 ? 'accuracy' : 'count'} fill={project.color} label="hii" />
+                            // </BarChart>
                             <BarChart data={project.chartData}>
                               <CartesianGrid strokeDasharray="3 3" stroke="#27273a" />
+
                               <XAxis
-                                dataKey={index === 0 ? 'model' : 'category'}
+                                dataKey="model"
                                 stroke="#a0a0b0"
                                 interval={0}
-                                tick={{ fontSize: 12 }}
+                                tick={{ fontSize: 10 }}
                               />
+
                               <YAxis
                                 stroke="#a0a0b0"
-                                label={index === 0 ? {
+                                label={{
                                   value: 'Accuracy',
                                   angle: -90,
                                   position: 'insideLeft',
-                                  style: { fill: '#a0a0b0' }
-                                } : undefined}
+                                  fontSize: 12,
+                                  style: { fill: '#a0a0b0' },
+                                }}
                               />
+
                               <Tooltip
                                 contentStyle={{
                                   backgroundColor: '#13131a',
                                   border: '1px solid #27273a',
                                 }}
                               />
-                              <Bar dataKey={index === 0 ? 'accuracy' : 'count'} fill={project.color} />
+
+                              <Bar dataKey="accuracy" fill={project.color}>
+                                <LabelList
+                                  dataKey="model"
+                                  content={({ x, y, width, height, value }: { x: number, y: number, width: number, height: number, value: string }) => {
+                                    if (!x || !y || !width || !height) return null;
+
+                                    const cx = x + width / 2;
+                                    const cy = y + height / 2;
+
+                                    return (
+                                      <text
+                                        x={cx}
+                                        y={cy}
+                                        fill="#000"
+                                        fontSize={14}
+                                        textAnchor="middle"
+                                        dominantBaseline="middle"
+                                        transform={`rotate(-90 ${cx} ${cy})`}
+                                        style={{ pointerEvents: "none" }}
+                                      >
+                                        {value}
+                                      </text>
+                                    );
+                                  }}
+                                />
+                              </Bar>
                             </BarChart>
                           ) : (
                             <LineChart data={project.chartData}>

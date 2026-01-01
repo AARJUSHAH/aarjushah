@@ -7,7 +7,7 @@ export function HeroSection() {
     <section className="relative min-h-screen flex items-center overflow-hidden" id="hero">
       {/* Asymmetric Layout */}
       <div className="container mx-auto px-6 py-24 relative z-10">
-        <div className="grid grid-cols-12 gap-8 items-center">
+        <div className="grid grid-cols-12 gap-y-8 md:gap-x-8 items-center">
           {/* Left Side - Oversized Typography */}
           <motion.div
             className="col-span-12 lg:col-span-7"
