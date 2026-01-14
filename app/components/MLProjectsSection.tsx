@@ -9,7 +9,7 @@ const projects = [
   {
     title: 'Youtube Chatbot',
     category: 'NLP / Machine Learning',
-    description: 'Real-time artistic style transfer using optimized CNN architectures. Processes 4K images in under 2 seconds with custom GPU acceleration.',
+    description: 'A AI-powered Question Answering (QA) system that provides context-aware answers based on YouTube video content.',
     metrics: [
       {
         name: 'Accuracy',
